@@ -1,0 +1,168 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #0b0f17;
+  color: #e9f0ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.game-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 260px;
+  gap: 24px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.hud,
+.journal {
+  background: #131a25;
+  border: 1px solid #1d2736;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hud h1 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+}
+
+.stats {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.stats .label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7e8aa3;
+}
+
+.controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.world {
+  position: relative;
+  background: #0d111c;
+  border-radius: 20px;
+  border: 1px solid #20283a;
+  box-shadow: 0 20px 50px rgba(2, 6, 12, 0.6);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+canvas#game {
+  background: #0d111c;
+  border-radius: 16px;
+  border: 1px solid #1c2333;
+}
+
+.overlay {
+  position: absolute;
+  inset: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.quest-log,
+.minimap {
+  background: rgba(12, 18, 30, 0.8);
+  border: 1px solid rgba(100, 120, 160, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+.quest-log {
+  max-width: 240px;
+}
+
+.quest-log ol {
+  margin: 8px 0 0 16px;
+  padding: 0;
+  color: #c6d2eb;
+  font-size: 0.9rem;
+  display: grid;
+  gap: 6px;
+}
+
+.minimap canvas {
+  display: block;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 120, 160, 0.3);
+}
+
+.journal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#journal {
+  display: grid;
+  gap: 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.log-entry {
+  background: #0d1320;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(100, 120, 160, 0.3);
+  font-size: 0.9rem;
+  color: #cbd6f2;
+}
+
+.log-entry span {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6e7c9b;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 1200px) {
+  .game-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .overlay {
+    position: static;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .world {
+    flex-direction: column;
+  }
+}
